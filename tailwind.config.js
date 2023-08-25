@@ -8,10 +8,20 @@ const pxr500 = getPxr(500)
 
 const config = {
     darkMode: 'class',
+    screens: {
+        mobile: '360px', // @media (min-width: 360px)
+        foldable: '523px', // @media (min-width: 523px)
+        tablet: '768px', // @media (min-width: 768px)
+        'under-foldable': { max: '522px' }, // @media (max-width: 522px)
+        'under-tablet': { max: '767px' }, // @media (max-width: 767px)
+        'under-mobile': { max: '359px' }, // @media (max-width: 359px)
+        'small-pc': { max: '1440px' }, // @media (max-width: 1200px)
+    },
     content: [
         './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
         './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+        './public/**/*.html',
     ],
     theme: {
         fontFamily: {
@@ -37,6 +47,6 @@ const config = {
             },
         },
     },
-    plugins: [],
+    plugins: [require('flowbite/plugin')],
 }
 export default config

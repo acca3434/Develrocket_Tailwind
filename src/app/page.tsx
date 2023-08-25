@@ -1,6 +1,8 @@
 'use client'
 import Link from 'next/link'
 import { ReactNode } from 'react'
+import 'twin.macro'
+import { Icon } from '@iconify/react'
 
 interface PageProps {}
 
@@ -15,6 +17,24 @@ const Visual: React.FC<VisualProps> = ({ alt, children }) => {
         </div>
     )
 }
+
+const AngleDown: React.FC = () => (
+    <svg
+        tw="text-gray-800 h-20 w-20 dark:text-white opacity-60"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 14 8"
+    >
+        <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"
+        />
+    </svg>
+)
 
 const KaKaoButton: React.FC = () => (
     <svg
@@ -46,7 +66,7 @@ const Page: React.FC<PageProps> = () => {
             <Visual>
                 {/* <div className="md:absolute left-1/2 md:transform md:-translate-x-1/2"> */}
                 {/* <div className="absolute md:m-auto md:left-0 md:right-0 flex justify-between align-items max-w-[1200px] h-[33px] "> */}
-                <div className="relative flex flex-col max-w-[1200px] m-auto pt-4 justify-between h-full">
+                <div className="relative flex flex-col max-w-[1200px] m-auto md:pt-18 pt-25 justify-between h-full">
                     <div className="flex justify-center w-full align-items md:justify-between ">
                         <h1>
                             <Link href="/">
@@ -56,16 +76,63 @@ const Page: React.FC<PageProps> = () => {
                                 />
                             </Link>
                         </h1>
-                        <nav className="hidden space-x-16 md:block">
-                            <Link href="/" className="text-white text-xl hover:text-[#666]">
+                        <nav className="md:relative space-x-16 right-[52px]">
+                            <Link href="/" className="text-white text-xl hover:text-[#666] hidden md:inline-block">
                                 About
                             </Link>
-                            <Link href="/" className="text-white text-xl hover:text-[#666]">
-                                About
+                            <Link href="/" className="text-white text-xl hover:text-[#666] hidden md:inline-block">
+                                Singup
                             </Link>
-                            <Link href="/" className="text-white text-xl hover:text-[#666]">
-                                About
+                            <Link href="/" className="text-white text-xl hover:text-[#666] hidden md:inline-block">
+                                Community
                             </Link>
+                            <span className="absolute w-40 h-40 md:right-[-52px] md:top-[-8px] right-15 top-15  bg-white bg-opacity-40 rounded-full font-bold leading-40 text-center">
+                                곽
+                                <div tw="absolute bg-gray-900 divide-y-1 divide-gray-700 rounded-lg shadow bg-opacity-80 w-180 translate-x-[-78%] translate-y-20">
+                                    <div className="flex px-16 py-16 text-sm text-gray-200 cursor-pointer">
+                                        곽인구 @web7722
+                                    </div>
+                                    <div className="py-2 font-sans text-sm font-normal text-gray-200 font-NanumSquare">
+                                        <Link href="/">
+                                            <div className="px-4 py-8 cursor-pointer text-md hover:bg-gary-100">
+                                                Profile
+                                            </div>
+                                        </Link>
+                                        <Link href="/">
+                                            <div className="px-4 py-8 cursor-pointer text-md hover:bg-gary-100">
+                                                My Posting
+                                            </div>
+                                        </Link>
+                                        <Link href="/">
+                                            <div className="px-4 py-8 cursor-pointer text-md hover:bg-gary-100">
+                                                Courses
+                                            </div>
+                                        </Link>
+                                    </div>
+                                    <div>
+                                        <label className="relative inline-flex items-center mr-16 cursor-pointer">
+                                            <input
+                                                type="checkbox"
+                                                className="sr-only peer"
+                                                value=""
+                                                checked={true}
+                                                onChange={() => {}}
+                                            />
+                                            <div className="flex items-center bg-gray-200 rounded-full h-18 w-18 peer-focus:ring-3 peer-focus:ring-teal-300 peer-checked:after:border-white after:content-[''] after:absolute afeter:top-5 afetr:left-[4px] after:border-gray-200">
+                                                <Icon
+                                                    icon="material-symbol:light-mode"
+                                                    className="ml-16 font-medium text-gray-200 text-md"
+                                                />
+
+                                                <Icon
+                                                    icon="inconamoon:mode-dark-fill"
+                                                    className="ml-auto mr-16 font-medium text-gray-500 text-md"
+                                                />
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </span>
                         </nav>
                     </div>
                     <div className="p-4 md:p-0">
@@ -81,7 +148,7 @@ const Page: React.FC<PageProps> = () => {
                         </p>
                     </div>
                     <div className="grid w-full grid-cols-1 p-5 md:grid-cols-3 h-210 mb-50 md:p-0">
-                        <div className="flex flex-col justify-between pt-[16px] bg-white rounded-2xl">
+                        <div className="hidden md:flex flex-col justify-between pt-[16px] bg-white rounded-2xl">
                             <p className="col-span-2 text-center text-20 text-[#3d006d] font-NanumGothic font-bold">
                                 D-STATION
                                 <span className="ml-10 text-[#000] font-NanumSquare font-normal">
@@ -97,9 +164,13 @@ const Page: React.FC<PageProps> = () => {
                     </div>
                 </div>
 
-                <div className="absolute bottom-0 transform -translate-x-1/2 bg-white h-80 w-80 left-1/2">
-                    <i className="fa-solid fa-circle-arrow-down"></i>
-                    <span tw="text-[#ff0000]">animate-bounce</span>
+                <div className="absolute bottom-0 w-20 h-20 transform -translate-x-1/2 left-1/2">
+                    <div tw="absolute bottom-20 animate-bounce">
+                        <div tw="absolute bg-black inline-block p-8 pl-14 opacity-60 rounded-md text-white bottom-28 whitespace-nowrap  -translate-x-1/2 left-1/2">
+                            화면을 스크롤해서 이동해주세요.
+                        </div>
+                        <AngleDown />
+                    </div>
                 </div>
             </Visual>
             {/* <div className="m-auto w-[1180px] bg-white ">
