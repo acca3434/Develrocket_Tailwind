@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ReactNode } from 'react'
 import 'twin.macro'
 import { Icon } from '@iconify/react'
+import DefaultTable from '@/(Components)/table/default'
 
 interface PageProps {}
 
@@ -257,10 +258,9 @@ const Page: React.FC<PageProps> = () => {
                         </div>
                         <div className="flex items-center justify-end flex-1 text-base font-medium"></div>
                     </div>
-                    <div>asdf</div>
-                    <div>asdf</div>
                 </div>
             </div> */}
+            {/* <DefaultTable></DefaultTable> */}
         </>
     )
 }
